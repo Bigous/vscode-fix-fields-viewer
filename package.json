@@ -1,6 +1,10 @@
 {
   "name": "fix-fields-viewer",
   "publisher": "Bigous",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/Bigous/vscode-fix-fields-viewer"
+  },
   "displayName": "Fix Fields Viewer",
   "description": "Shows fix protocol fields in selection as a meaningful table.",
   "version": "0.0.1",
