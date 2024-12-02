@@ -1,0 +1,73 @@
+{
+  "name": "fix-fields-viewer",
+  "publisher": "Bigous",
+  "displayName": "Fix Fields Viewer",
+  "description": "Shows fix protocol fields in selection as a meaningful table.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "fix-fields-viewer.showTable",
+        "title": "FIX Fields Viewer: Show FIX Message"
+      },
+      {
+        "command": "fix-fields-viewer.stopAutoDetect",
+        "title": "FIX Fields Viewer: Stop Auto Detect"
+      },
+      {
+        "command": "fix-fields-viewer.startAutoDetect",
+        "title": "FIX Fields Viewer: Start Auto Detect"
+      }
+    ],
+    "configuration": {
+      "title": "FIX Fields Viewer",
+      "properties": {
+        "fix-fields-viewer.autoDetect": {
+          "type": "boolean",
+          "default": true,
+          "description": "Auto detect FIX messages in the active editor when the extension is activated."
+        },
+        "fix-fields-viewer.keepFilters": {
+          "type": "boolean",
+          "default": true,
+          "description": "Keep filters when changing the selected fix line."
+        }
+      }
+    },
+    "allow-script": true
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.17.7",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "xml2js": "^0.6.2"
+  }
+}
